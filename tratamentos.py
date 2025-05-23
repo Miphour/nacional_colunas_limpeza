@@ -23,10 +23,10 @@ def trata_cod_portador(planilha):
 def trata_cod_cartorio(planilha):
   alvo = 'Código do Cartório'
   if alvo in planilha.columns:
-    base[alvo] = base[alvo].fillna(0)
-    base[alvo] = base[alvo].astype(int)
-    base[alvo] = base[alvo].astype(str)
-    base[alvo] = base[alvo].str.zfill(2)
+    planilha[alvo] = planilha[alvo].fillna(0)
+    planilha[alvo] = planilha[alvo].astype(int)
+    planilha[alvo] = planilha[alvo].astype(str)
+    planilha[alvo] = planilha[alvo].str.zfill(2)
   return planilha
 
 
