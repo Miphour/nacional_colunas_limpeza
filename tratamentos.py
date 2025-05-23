@@ -15,12 +15,14 @@ def trata_documento_sacador(planilha):
 
 def trata_cod_portador(planilha):
   alvo = "Código do Portador"
+  if alvo in planilha.columns:
     planilha[alvo] = planilha[alvo].astype(str)
     planilha[alvo] = planilha[alvo].str.zfill(3)
   return planilha
 
 def trata_cod_cartorio(planilha):
   alvo = 'Código do Cartório'
+  if alvo in planilha.columns:
     base[alvo] = base[alvo].fillna(0)
     base[alvo] = base[alvo].astype(int).astype(str)
     base[alvo] = base[alvo].str.zfill(2)
