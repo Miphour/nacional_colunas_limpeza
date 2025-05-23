@@ -12,3 +12,9 @@ def trata_documento_sacador(planilha):
     planilha[alvo] = planilha[alvo].astype(str)
     planilha[alvo] = planilha[alvo].str.zfill(14)
   return planilha
+
+def tratamento_padrao(planilha):
+  planilha = trata_documento_devedor(planilha)
+  planilha = trata_documento_sacador(planilha)
+  
+  return planilha
