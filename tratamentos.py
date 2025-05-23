@@ -24,7 +24,7 @@ def trata_cod_cartorio(planilha):
     base[alvo] = base[alvo].fillna(0)
     base[alvo] = base[alvo].astype(int).astype(str)
     base[alvo] = base[alvo].str.zfill(2)
-return planilha
+  return planilha
 
 
 def tratamento_padrao(planilha):
