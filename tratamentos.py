@@ -18,6 +18,7 @@ def trata_cod_portador(planilha):
   alvo = "Código do Portador"
   if alvo in planilha.columns:
     planilha[alvo] = planilha[alvo].astype(str)
+    planilha[alvo] = planilha[alvo].str.upper()
     planilha[alvo] = planilha[alvo].str.zfill(3)
   return planilha
   
