@@ -36,19 +36,6 @@ def nome_municipio(planilha):
   planilha["MUNICIPIO"] = planilha["MUNICIPIO"].apply(lambda x: unidecode(x).upper())
   return planilha
 
-'''
-def isola_cnpjs(planilha):
-  cnpjs = []
-  
-  devedores = planilha['Documento do Devedor'].unique()
-  credores  = planilha['Documento do Sacador'].unique()
-  cnpjs = cnpjs.append(devedores)
-  cnpjs = cnpjs.append(credores)
-
-  return cnpjs
-
-'''
-
 
 def adiciona_colunas(planilha):
   planilha = tempo_ate_envio(planilha)
