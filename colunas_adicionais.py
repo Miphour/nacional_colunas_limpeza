@@ -1,10 +1,9 @@
 # Adiciona colunas básicas numa tabela
 
 !pip install unidecode
-from unidecode import unidecode
-
 !wget https://raw.githubusercontent.com/Miphour/nacional_colunas_limpeza/refs/heads/main/municipios_tratado.csv
 
+from unidecode import unidecode
 import pandas as pd
 
 municipios = pd.read_csv('/content/municipios_tratado.csv', encoding='latin1',sep=',')
