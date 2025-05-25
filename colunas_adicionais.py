@@ -1,6 +1,6 @@
 # Adiciona colunas básicas numa tabela
 
-pip install unidecode
+#pip install unidecode
 wget https://raw.githubusercontent.com/Miphour/nacional_colunas_limpeza/refs/heads/main/municipios_tratado.csv
 
 from unidecode import unidecode
