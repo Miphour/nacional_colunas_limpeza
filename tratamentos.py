@@ -183,6 +183,16 @@ def trata_valor_distribuicao(planilha):
     planilha[alvo] = planilha[alvo].round(2)
   return planilha 
 
+def trata_data_remessa(planilha):
+alvo = 'Data de Remessa'
+  try:
+    if alvo in planilha.columns:
+      planilha['provisorio'] = pd.to_datetime(planilha[alvo], format='%d/%m/%Y')
+      planilha[alvo] = planilha['provisorio']
+      planilha = planilha.drop(columns=['provisorio'])
+  except:
+    pass
+  return planilha
 
 # unifica e cria uma função padrão
 
@@ -210,6 +220,8 @@ def tratamento_padrao(planilha):
     planilha = trata_falimentar(planilha)
     planilha = trata_valor_custas(planilha)
     planilha = trata_valor_distribuicao(planilha)
+    planilha = trata_data_remessa(planilha)
+  
 
     # verifica se alguma coluna não foi tratada
     alvos = [
@@ -229,6 +241,7 @@ def tratamento_padrao(planilha):
            'Data do Protocolo',
            'Data de Confirmação',
            'Data de Retorno',
+           'Data de Remessa',
            'Tipo do Documento do Devedor',
            'Código da Irregularidade',
            'Complemento de Irregularidade',
