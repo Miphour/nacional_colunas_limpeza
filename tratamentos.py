@@ -93,7 +93,7 @@ def trata_data_vencimento(planilha):
   alvo = 'Data de Vencimento'
   try:
     if alvo in planilha.columns:
-      planilha['provisorio'] = pd.to_datetime(planilha['Data de Vencimento'], format='%d/%m/%Y')
+      planilha['provisorio'] = pd.to_datetime(planilha['Data de Vencimento'], errors='coerce')
       planilha[alvo] = planilha['provisorio']
       planilha = planilha.drop(columns=['provisorio'])
   except:
@@ -104,7 +104,7 @@ def trata_data_protocolo(planilha):
   alvo = 'Data do Protocolo'
   try:
     if alvo in planilha.columns:
-      planilha['provisorio'] = pd.to_datetime(planilha[alvo], format='%d/%m/%Y')
+      planilha['provisorio'] = pd.to_datetime(planilha[alvo], errors='coerce')
       planilha[alvo] = planilha['provisorio']
       planilha = planilha.drop(columns=['provisorio'])
   except:
@@ -115,7 +115,7 @@ def trata_data_confirmacao(planilha):
   alvo = 'Data de Confirmação'
   try:
     if alvo in planilha.columns:
-      planilha['provisorio'] = pd.to_datetime(planilha[alvo], format='%d/%m/%Y')
+      planilha['provisorio'] = pd.to_datetime(planilha[alvo], errors='coerce')
       planilha[alvo] = planilha['provisorio']
       planilha = planilha.drop(columns=['provisorio'])
   except:
@@ -126,7 +126,18 @@ def trata_data_retorno(planilha):
   alvo = 'Data de Retorno'
   try:
     if alvo in planilha.columns:
-      planilha['provisorio'] = pd.to_datetime(planilha[alvo], format='%d/%m/%Y')
+      planilha['provisorio'] = pd.to_datetime(planilha[alvo], errors='coerce')
+      planilha[alvo] = planilha['provisorio']
+      planilha = planilha.drop(columns=['provisorio'])
+  except:
+    pass
+  return planilha
+
+def trata_data_remessa(planilha):
+alvo = 'Data de Remessa'
+  try:
+    if alvo in planilha.columns:
+      planilha['provisorio'] = pd.to_datetime(planilha[alvo], errors='coerce')
       planilha[alvo] = planilha['provisorio']
       planilha = planilha.drop(columns=['provisorio'])
   except:
@@ -152,7 +163,6 @@ def trata_cod_irregularidade(planilha):
     planilha[alvo] = planilha[alvo].str.zfill(2) 
   return planilha 
  
-
 def trata_comp_irregularidade(planilha):
   alvo = 'Complemento de Irregularidade'
   if alvo in planilha.columns: 
@@ -175,7 +185,6 @@ def trata_valor_custas(planilha):
     planilha[alvo] = planilha[alvo].round(2)
   return planilha 
  
-
 def trata_valor_distribuicao(planilha): 
   alvo = 'Valor de Distribuição'
   if alvo in planilha.columns: 
@@ -184,16 +193,6 @@ def trata_valor_distribuicao(planilha):
     planilha[alvo] = planilha[alvo].round(2)
   return planilha 
 
-def trata_data_remessa(planilha):
-alvo = 'Data de Remessa'
-  try:
-    if alvo in planilha.columns:
-      planilha['provisorio'] = pd.to_datetime(planilha[alvo], format='%d/%m/%Y')
-      planilha[alvo] = planilha['provisorio']
-      planilha = planilha.drop(columns=['provisorio'])
-  except:
-    pass
-  return planilha
 
 # unifica e cria uma função padrão
 
