@@ -156,6 +156,7 @@ def trata_cod_irregularidade(planilha):
 def trata_comp_irregularidade(planilha):
   alvo = 'Complemento de Irregularidade'
   if alvo in planilha.columns: 
+    planilha[alvo] = planilha[alvo].replace({' ': None, '0': None, '00': None, 'nan': None})
     planilha[alvo] = planilha[alvo].astype(str)
   return planilha 
   
