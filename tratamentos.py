@@ -134,7 +134,7 @@ def trata_data_retorno(planilha):
   return planilha
 
 def trata_data_remessa(planilha):
-alvo = 'Data de Remessa'
+  alvo = 'Data de Remessa'
   try:
     if alvo in planilha.columns:
       planilha['provisorio'] = pd.to_datetime(planilha[alvo], errors='coerce')
